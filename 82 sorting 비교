@@ -1,0 +1,3 @@
+sorting은 기본적인 것이다. 
+bubbleSort, selectionSort, insertionSort는 모두 비슷비슷하다
+모두 비슷하게 O square 2로 시간복잡도를 가지고 있다

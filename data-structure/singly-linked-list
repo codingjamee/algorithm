@@ -1,0 +1,138 @@
+data structure
+head, tail, length를 가지고 있음
+
+- linked list
+  node들로 이루어짐
+  index가 없음 (임의접근 허용 안됨)
+  삽입과 제거를 하기 용이
+
+  - node
+    문자열 혹은 숫자와 같은 하나의 데이터 엘리먼트
+  - pointer(linked list의 경우 next)
+    다음 node를 가리키거나 다음이 없으면 null을 가리킴
+  - linked list의 head, tail, length
+    head : 시작 노드
+    tail : 마지막 노드
+    length : tail
+
+  - 무언가에 접근할 때 : head부터 접근
+  - 특정 인덱스에 삽입할 때 :
+    처음부터 시작해서 해당 인덱스만큼 반복
+    해당 인덱스에 도달하면 삽입할 숫자의 next에 연결될 다음 요소를 연결,
+    그 이전 요소의 next에 삽입할 숫자 연결
+  - 처음에 삽입할 때 :
+    새로운 head에 삽입할 숫자 연결
+    next에 이전의 head 연결
+
+  - push 메서드(맨 끝에 삽입)
+    해당 메서드 사용하여 맨 끝에 새로운 node를 삽입
+
+    - pseudo code :
+      value를 받는 메서드
+      추가된 val로 new node를 생성
+
+      - {head가 없으면}
+        head와 tail을 해당 노드를 가리키게 함
+        길이 한개씩 추가
+      - {list가 비어있지 않으면 }
+        list마지막 노드의 next를 새롭게 생성된 node를 가리키게
+        tail은 새로 생성된 node
+        길이 한개씩 추가
+
+    - 예시 :  
+      처음에 node를 삽입하면 head, tail, next가 모두 한 node를 가리킴
+      두번째 node를 삽입하면 해당 node가 tail이 되고
+      head의 next는 삽입한 node를 가리킴(head는 여전히 첫번째 push한 node)
+      세번째 node를 삽입하면 해당 node가 tail이 되고
+      두번째 node의 next는 삽입한 node를 가리킴
+
+  - pop 메서드
+    맨 끝 node를 삭제하고 메서드 실행시 삭제한 node를 return
+    singly linked list는 역방향을 저장하지 않기 때문에
+    새로운 tail이 될 node를 찾으려면 처음부터 검색해야 함
+
+    - pseudo code :
+      만약 head가 없을 때는 return undefined
+      cur라는 변수로 next가 null일때가지 검색
+      null이 아니면 pre에 cur를 할당
+      pre에 pre.next를 할당
+
+      해당 node를 찾으면 while루프에서 빠져나옴
+      삭제될 node를 할당하고(return 하기 위해 )
+      그 노드가 새로운 tail이 되고 next를 null로 변경
+      this.length를 -1 하고
+      삭제된 노드를 return
+
+    - precaution :
+      node를 한개가 남을 때까지 pop메서드를 실행했을 경우
+      head와 tail은 여전히 남게 됨.
+      마지막 list의 length가 0일 경우 혹은
+      head와 tail이 같을 경우
+      head와 tail을 null로 변경해야 함
+
+  - shift 메서드
+    맨처음 노드를 삭제하는 메서드
+    index가 있는 배열보다 삭제가 매우 쉽다 (인덱스는 수정해야함 )
+
+    this.head가 없을 때 return undefined
+    처음 노드를 temp에 저장
+    temp의 next가 head가 되고
+    temp의 next를 null로 하고
+    this.length는 -1로 하고
+    head가 tail일때 다 null로 변경
+
+  - unshift 메서드
+    맨 처음에 노드를 추가하는 메서드 
+    this.tail은 없을때 빼고는 건드리지 않음 
+    추가할 노드의 next에 this.head 노드 추가
+    this.head에 추가할 노드 할당
+
+  - get 메서드
+    인덱스를 입력하면 해당 위치의 노드를 반환
+
+    - pseudo code
+      인덱스가 0보다 작거나 리스트의 길이보다 크다면 return null
+      해당 인덱스에 도달할 때까지 루프를 돌다가 
+      해당 인덱스의 노드를 return 
+      카운터로 노드의 숫자를 셈
+
+  - set 메서드 
+    위치 혹은 인덱스와 해당 인덱스에 위치한 노드를
+    업데이트 할 값 등 두 개의 인자를 받아들임.
+
+    - pseudo code 
+      index와 value를 받아들이는 메서드 
+      get메서드를 사용하여 해당 노드 검색 
+      node가 없다면 return false 
+      node를 찾았다면 해당 노드를 주어진 value로 변경 return true
+
+  - insert 메서드 
+    index와 value를 받아들임
+    set과는 다르게 해당 index의 기존 node.val 교체가 아닌, 
+    추가 하는 것 
+    
+    - pseudo code
+      인덱스가 0보다 작거나 리스트의 길이보다 크다면 return null 
+      인덱스가 리스트 길이라면 push메서드 
+      인덱스가 0이라면 unshift
+      해당 인덱스 이전의 node 찾기 위해 get메서드 사용 
+
+  - remove 메서드
+    인덱스를 인자로 받아서 해당 인덱스에 있는 노드를 제거하고 
+    주위의 것을 연결
+      - pseudo code
+        인덱스가 0보다 작거나 리스트의 길이보다 크다면 return null 
+        인덱스가 리스트 길이-1 이라면 pop
+        인덱스가 0이라면 shift
+        prevNode는 index-1을 get에서 얻은 노드
+        removed는 prevNode의 next
+        prevNode의 next를 removed의 next
+  - reverse 메서드
+    모든 노드들의 방향을 거꾸로 만들기 
+      - pseudo code
+        head와 tail 바꾸기 
+        next 변수 만들기
+        prev 변수 만들기 
+        node를 만들고 현재 헤드 값으로 초기화 
+        리스트를 돌면서 
+        

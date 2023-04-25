@@ -1,0 +1,8 @@
+doubly linked list
+
+특징 양방향으로 연결되어있음
+
+- 초기 구성
+  Node에는 val, next, prev가 있음
+  Doubly linked list에는
+  head, tail, length가 있음

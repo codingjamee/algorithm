@@ -1,0 +1,44 @@
+colt algo 19강 
+
+1. understand the problem
+   1. can I restate the problem in my own words?
+   2. what are the inputs that go into the problem?
+   3. what are the outputs that should come from the solution to the problem?
+   4. can the outputs be determined from the inputs? 
+   in other words, do I have enough information to solve th problem?
+   5. how should I label the important pieces of data that are a part of the 
+   problem?
+
+2. explore concrete examples 
+   Start with simple examples
+   progress to more complex examples
+   explore examples with empty inputs
+   explore examples with invalid inputs
+   
+3. break it down
+    do just a little comment as a guide for the steps I need to take in
+
+4. solve/simplifyu
+   find the core difficulty in what you're trying to do
+   temporarily ignore that difficulty
+   write a simplified solution
+   then incorporate that difficulty back in
+   
+5. look back and refactor
+   can you check the result?
+   can you derive the result differently?
+   can you understand it at a glance?
+   can you use the result or method for some other problem?
+   can you improve the performance of your solution?
+   can you think of other ways to refactor?
+   how have other people solved this problem?
+   
+
+
+
+problem solving :
+1. understand the problem
+2. explore concrete examples 
+3. break it down
+4. solve/simplify
+5. look back and refactor

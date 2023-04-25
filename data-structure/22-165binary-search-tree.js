@@ -66,6 +66,17 @@ class BinarySearchTree {
     }
     return data;
   }
+
+  dfs (){
+    const data= [];
+    function traverse(node){
+      data.push(node);
+      if(node.left) traverse(node.left);
+      if(node.right) traverse(node.rigtht);
+    }
+    traverse(this.root);
+    return data;
+  }
 }
 
 const tree = new BinarySearchTree();

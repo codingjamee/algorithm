@@ -60,20 +60,46 @@ class BinarySearchTree {
 
     while (queue.length) {
       node = queue.shift();
-      data.push(node);
+      data.push(node.value);
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
     }
     return data;
   }
 
-  dfs (){
-    const data= [];
-    function traverse(node){
-      data.push(node);
-      if(node.left) traverse(node.left);
-      if(node.right) traverse(node.rigtht);
+  dfsPreOrder() {
+    const data = [];
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
     }
+    traverse(this.root);
+    return data;
+  }
+
+  dfsPostOrder() {
+    const data = [];
+    const traverse = (node) => {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+
+      data.push(node.value);
+    };
+    traverse(this.root);
+    return data;
+  }
+  dfsInOrder() {
+    const data = [];
+    const traverse = (node) => {
+      if (node.left) {
+        traverse(node.left);
+      }
+      data.push(node.value);
+      if (node.right) {
+        traverse(node.right);
+      }
+    };
     traverse(this.root);
     return data;
   }
@@ -81,12 +107,15 @@ class BinarySearchTree {
 
 const tree = new BinarySearchTree();
 
-tree.insert(19);
-tree.insert(5);
-tree.insert(13);
-tree.insert(16);
-tree.insert(9);
+tree.insert(10);
 tree.insert(6);
-tree.insert(37);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
 
 tree.find(5);
+tree.breathFirstSearch();
+tree.dfsPreOrder(); //[10, 6, 3, 8, 15, 20]
+tree.dfsPostOrder(); //[3, 8, 6, 20, 15, 10]
+tree.dfsInOrder(); //[3, 6, 8, 10, 15, 20]

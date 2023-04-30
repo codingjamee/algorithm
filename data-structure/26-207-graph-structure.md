@@ -149,3 +149,7 @@ g.removeEdge("Tokyo", "Dallas")
  "Aspen" : ["Dallas"]
 }
 ```
+
+## remove vertex 메서드
+
+간선(edge)과 정점(vertex)을 모두 제거해야 함

@@ -103,8 +103,8 @@ g.addEdge("Tokyo", "Dallas")
 ```javascript
 
 {
- "Tokyo": ["Tokyo"],
- "Dallas" : ["Dallas"],
+ "Tokyo": ["Dallas"],
+ "Dallas" : ["Tokyo"],
  "Aspen" : []
 }
 ```
@@ -153,3 +153,8 @@ g.removeEdge("Tokyo", "Dallas")
 ## remove vertex 메서드
 
 간선(edge)과 정점(vertex)을 모두 제거해야 함
+adjacency List에 다른 정점이 있다면
+그 안에 해당 정점이 있는지 확인하기 위해 루프를 돌아야 함
+그 목록에 간선들을 삭제해야 함
+해당 정점에 있는 모든 간선에 대해 removeEdge를 호출해야 함
+해당 정점 키를 adjacency list에서 삭제하면 됨 (delete로)

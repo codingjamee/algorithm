@@ -21,7 +21,7 @@ const capitalizeFirst = (inputArray) => {
 
 capitalizeFirst(["car", "taco", "banana"]);
 
-function capitalizeFirst(array) {
+function capitalizeFirst2(array) {
   // add whatever parameters you deem necessary - good luck!
   let newArray = [];
   let firstS = array[0][0].toUpperCase();
@@ -32,4 +32,25 @@ function capitalizeFirst(array) {
   return newArray;
 }
 
-// // capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
+function capitalizeFirst_solution(array) {
+  if (array.length === 1) {
+    return [array[0][0].toUpperCase() + array[0].substr(1)];
+  }
+  const res = capitalizeFirst_solution(array.slice(0, -1));
+  const string =
+    array.slice(array.length - 1)[0][0].toUpperCase() +
+    array.slice(array.length - 1)[0].substr(1);
+  res.push(string);
+  return res;
+}
+//콜스택에는 array 3개 => 2개 => 1개
+//["car", "taco", "banana"] res = ["Car", "Taco"]가 반환 인수 string "Banana"를 res에 넣고 반환
+//["car", "taco"] res = ["Car"]가 반환 두번째 인수 string을 res에 넣고 반환 ["Car", "Taco"]
+//["car"]일때 ["Car"]를 반환
+//
+//array가 세개 array가 두개 array가 한개일때 각각 뒤엣것을 uppercase작업하고 반환되는 res에 추가해주기
+//반환될 때는 거꾸로 하기 때문에
+
+//반환할 것은 res (완성된array)
+//res를
+capitalizeFirst_solution(["car", "taco", "banana"]); // ['Car','Taco','Banana']

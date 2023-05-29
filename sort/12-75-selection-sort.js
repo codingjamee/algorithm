@@ -2,7 +2,7 @@
 
 const selectionSort = (array) => {
   const newArray = [];
-  if (array.length < 1) return array;
+  if (array.length <= 1) return array;
   let min = Infinity;
   for (let i = 0; i < array.length; i++) {
     if (array[i] < min) {
@@ -24,7 +24,8 @@ const selectionSort2 = (array) => {
   for (let i = 0; i < array.length; i++) {
     let minIndex = i;
     let cur;
-    for (let j = i; j < array.length; j++) {
+    for (let j = i + 1; j < array.length; j++) {
+      console.log(i, j);
       if (array[j] < array[minIndex]) {
         minIndex = j;
       }
@@ -33,6 +34,7 @@ const selectionSort2 = (array) => {
       cur = array[minIndex];
       array[minIndex] = array[i];
       array[i] = cur;
+      console.log(array);
     }
   }
   return array;

@@ -52,5 +52,9 @@ function capitalizeFirst_solution(array) {
 //반환될 때는 거꾸로 하기 때문에
 
 //반환할 것은 res (완성된array)
-//res를
+//res를 완성시키려면 점차 넣는 작업이 필요
+//length를 1까지 쪼개어 재귀 호출하고
+//length가 1일때는 해당 글자를 return해주고
+//그다음에는 뒤의 인수를 uppercase작업하고 넣어주고
+//다 채웠으면 return
 capitalizeFirst_solution(["car", "taco", "banana"]); // ['Car','Taco','Banana']

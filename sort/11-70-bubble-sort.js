@@ -5,12 +5,10 @@ const bubbleSort = (array) => {
       console.log(array, array[j], array[j + 1]);
       let cur;
       if (array[j] > array[j + 1]) {
-        noSwaps = false;
         cur = array[j + 1];
         array[j + 1] = array[j];
         array[j] = cur;
-      } else {
-        continue;
+        noSwaps = false;
       }
     }
     if (noSwaps) return;

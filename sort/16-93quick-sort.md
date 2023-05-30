@@ -14,7 +14,7 @@ helper function이 pivot엘리먼트를 지정
 순서는 중요하지 않음
 새 배열을 만들면 안되고 피벗 포인트의 올바른 인덱스를 반환해야 함
 
-#### pseudo code
+#### pivot 함수 pseudo code
 
 세개의 인수를 받음
 어레이, start index, end index
@@ -23,6 +23,13 @@ helper function이 pivot엘리먼트를 지정
 끝까지 루프 수행
 살펴보는 요소보다 피벗이 클 경우 피벗 인덱스 변수를 증가,
 시작 피벗과 피벗 인덱스를 바꾸고 다음 피벗 인덱스를 반환
+
+### quick sort pseudocode
+
+피벗 헬퍼를호출
+업데이트된 피벗 인덱스를 return하면,
+재귀적으로 피벗 헬퍼를 해당 인덱스의 왼쪽 하위 에러이와 오른쪽 하위 어레이를
+호출
 
 ```javascript
 
